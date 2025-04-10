@@ -1,0 +1,11 @@
+[
+    {"name": "valid_auth", "command": [0, 1, 2, 3, 4, 5, 6]},
+    {"name": "open_command", "command": [1]},
+    {"name": "close_command", "command": [2]},
+    {"name": "invalid_passcode", "command": [0, 6, 5, 4, 3, 2, 1]},
+    {"name": "short_passcode", "command": [0, 1, 2, 3]},
+    {"name": "long_passcode", "command": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]},
+    {"name": "empty_command", "command": []},
+    {"name": "unknown_command_1", "command": [10]},
+    {"name": "unknown_command_2", "command": [20, 30, 40]}
+]
