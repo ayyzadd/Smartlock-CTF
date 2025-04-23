@@ -1,11 +1,78 @@
 [
-    {"name": "valid_auth", "command": [0, 1, 2, 3, 4, 5, 6]},
-    {"name": "open_command", "command": [1]},
-    {"name": "close_command", "command": [2]},
-    {"name": "invalid_passcode", "command": [0, 6, 5, 4, 3, 2, 1]},
-    {"name": "short_passcode", "command": [0, 1, 2, 3]},
-    {"name": "long_passcode", "command": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]},
-    {"name": "empty_command", "command": []},
-    {"name": "unknown_command_1", "command": [10]},
-    {"name": "unknown_command_2", "command": [20, 30, 40]}
-]
+    {
+      "label": "valid_auth",
+      "command": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "from_state": "Locked",
+      "to_state": "Authenticated"
+    },
+    {
+      "label": "wrong_auth",
+      "command": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        7
+      ],
+      "from_state": "Locked",
+      "to_state": "Locked"
+    },
+    {
+      "label": "open_after_auth",
+      "command": [
+        1
+      ],
+      "from_state": "Authenticated",
+      "to_state": "Unlocked"
+    },
+    {
+      "label": "close_from_unlocked",
+      "command": [
+        2
+      ],
+      "from_state": "Unlocked",
+      "to_state": "Locked"
+    },
+    {
+      "label": "open_without_auth",
+      "command": [
+        1
+      ],
+      "from_state": "Locked",
+      "to_state": "error"
+    },
+    {
+      "label": "invalid_cmd",
+      "command": [
+        171
+      ],
+      "from_state": "any",
+      "to_state": "error"
+    },
+    {
+      "label": "random_extra_bytes",
+      "command": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        9
+      ],
+      "from_state": "Locked",
+      "to_state": "Authenticated"
+    }
+  ]
